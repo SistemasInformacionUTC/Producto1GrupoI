@@ -71,13 +71,14 @@
                     @header("introduced", "Introduced")
                     @header("discontinued", "Discontinued")
                     @header("company.name", "Company")
+                     @header("monitor", "Monitor")
                 </tr>
             </thead>
             <tbody>
 
                 @for(computer <- currentPage.getList) {
                     <tr>
-                        <td><a href="@routes.HomeController.edit(computer.id)">@computer.name</a></td>
+                        <td><a href="@routes.HomeController.edit(computer.id)">@monitor.name</a></td>
                         <td>
                             @if(computer.introduced == null) {
                                 <em>-</em>

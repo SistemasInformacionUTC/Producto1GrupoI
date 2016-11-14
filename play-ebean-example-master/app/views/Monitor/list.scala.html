@@ -1,0 +1,41 @@
+
+@import com.avaje.ebean._
+@(currentPage: PagedList[Monitor])
+
+<a href="/monitor/new" > <h3>Nuevo</h3></a>
+
+@if(currentPage.getTotalRowCount == 0) {
+        
+        <div class="well">
+            <em>datos</em>
+        </div>
+        
+    } else {
+        
+        <table class="computers zebra-striped" border="2">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>cantidad</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for(monitor <- currentPage.getList) {
+                    <tr>
+                        
+                        <td>
+                            @monitor.nombre
+                        </td>
+                        <td>
+                            @monitor.cantidad
+                        </td>
+                        <td><a href="@routes.MonitoresController.edit(persona.id)">Editar</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        
+    }

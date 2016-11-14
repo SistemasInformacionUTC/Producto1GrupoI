@@ -2,10 +2,10 @@ package controllers;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Transaction;
+
 import play.mvc.*;
 import play.data.*;
 import static play.data.Form.*;
-
 import models.*;
 
 import javax.inject.Inject;
@@ -88,6 +88,7 @@ public class HomeController  extends Controller {
                 savedComputer.discontinued = newComputerData.discontinued;
                 savedComputer.introduced = newComputerData.introduced;
                 savedComputer.name = newComputerData.name;
+                savedComputer.monitor = newComputerData.monitor;
 
                 savedComputer.update();
                 flash("success", "Computer " + computerForm.get().name + " has been updated");
@@ -130,6 +131,9 @@ public class HomeController  extends Controller {
         Computer.find.ref(id).delete();
         flash("success", "Computer has been deleted");
         return GO_HOME;
+    }
+    public Result index() {
+        return ok(index.render("Your new application is ready."));
     }
     
 
