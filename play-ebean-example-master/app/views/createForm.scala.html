@@ -12,15 +12,25 @@
         
         <fieldset>
             @b3.text(computerForm("name"), '_label -> "Computer name", '_help -> "")
+            
+            @b3.date(videoForm("nombre"), '_label -> "Nombre", '_help -> "")
+            @b3.date(videoForm("capacidad"), '_label -> "Capacidad", '_help -> "")
+			 @b3.date(videoForm("precio"), '_label -> "precio", '_help -> "")
+			 
+           
+           
             @b3.date(computerForm("introduced"), '_label -> "Introduced date", '_help -> "")
             @b3.date(computerForm("discontinued"), '_label -> "Discontinued date", '_help -> "")
-
+			
             @b3.select(
                 computerForm("company.id"), 
                 options(Company.options), 
                 '_label -> "Company", '_default -> "-- Choose a company --",
                 '_showConstraints -> false
             )
+            
+            
+            
         </fieldset>
         
         <div class="actions">

@@ -68,6 +68,7 @@ public class HomeController  extends Controller {
         );
     }
     
+    
     /**
      * Handle the 'edit form' submission 
      *
@@ -110,20 +111,17 @@ public class HomeController  extends Controller {
         );
     }
     
+    
+    
     /**
      * Handle the 'new computer form' submission 
      */
     public Result save() {
-        Computer c1 =new Computer();
-    	Form<Computer> computerForm = formFactory.form(Computer.class).bindFromRequest();
-        
+        Form<Computer> computerForm = formFactory.form(Computer.class).bindFromRequest();
         if(computerForm.hasErrors()) {
             return badRequest(views.html.createForm.render(computerForm));
         }
-        c1= computerForm.get();
-        c1.id=(long)998;
-        c1.save();
-        //computerForm.get().save();
+        computerForm.get().save();
         flash("success", "Computer " + computerForm.get().name + " has been created");
         return GO_HOME;
     }
@@ -136,7 +134,19 @@ public class HomeController  extends Controller {
         flash("success", "Computer has been deleted");
         return GO_HOME;
     }
+
+    public Result save1() {
+        Form<Video> videoForm = formFactory.form(Video.class).bindFromRequest();
+        if(videoForm.hasErrors()) {
+            return badRequest(views.html.createForm.render(videoForm));
+        }
+        videoForm.get().save();
+        flash("se a guadado", "Video " + videoForm.get().name + " Se a guardado");
+        return GO_HOME;
+    }
     
+    
+   
 
 }
             
