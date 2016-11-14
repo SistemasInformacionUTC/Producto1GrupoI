@@ -14,14 +14,15 @@ public class Disco  extends Model {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     
 	public Long id;
+	public String nombre;
     
     @Constraint.Required(message=" ingresar nombre del disco.")
-    public String nombre;
-    
-    @Constraints.Required(message=" ingresar su marca.")
     public String descripcion;
     
-    @Constraints.Required(message="");
+    
+    @Constraints.Required(message=" ingresar su marca.")
+ 
+        @Constraints.Required(message="")
 	
 }
 
