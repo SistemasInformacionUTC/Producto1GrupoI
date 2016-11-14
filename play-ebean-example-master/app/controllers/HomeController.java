@@ -132,6 +132,9 @@ public class HomeController  extends Controller {
         return GO_HOME;
     }
     
-
+    public void disco(String){
+    	
+    }
+      
 }
-            
+          
